@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    File:  activity_main.xml
+
+    Author: Justin Lange
+    This assignment represents my own work and is in accordance with the College Academic Policy
+
+    Copyright(c) 2019 All Right Reserved by Justin Lange
+
+    Date: 28-02-19
+-->
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
