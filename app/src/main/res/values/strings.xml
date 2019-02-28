@@ -3,4 +3,12 @@
     <string name="win">YOU WIN!</string>
     <string name="lose">YOU LOSE!</string>
     <string name="draw">DRAW!</string>
+    <string name="rock_button_description">Rock Button</string>
+    <string name="paper_button_description">Paper Button</string>
+    <string name="scissors_button_description">Scissors Button</string>
+    <string name="player_move_image_description">Player Move</string>
+    <string name="computer_move_image_description">Computer Move</string>
+    <string name="player_move_initial_text">Player Move</string>
+    <string name="computer_move_initial_text">Computer Move</string>
+    <string name="result_initial_text">WIN/LOSE/DRAW</string>
 </resources>

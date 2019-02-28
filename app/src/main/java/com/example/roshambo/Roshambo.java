@@ -32,7 +32,7 @@ public class Roshambo {
 
     public Roshambo() {
         rand = new Random();
-        gameMakesMove();
+        gameMove = NONE;
         playerMove = NONE;
     }
 

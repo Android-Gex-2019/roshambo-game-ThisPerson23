@@ -11,14 +11,159 @@
 
 package com.example.roshambo;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AnticipateOvershootInterpolator;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ImageView rockButtonImage_;
+    private ImageView paperButtonImage_;
+    private ImageView scissorsButtonImage_;
+    private ImageView playerMoveImage_;
+    private ImageView computerMoveImage_;
+    private TextView playerMoveText_;
+    private TextView computerMoveText_;
+    private TextView gameResultText_;
+
+    private Roshambo game = new Roshambo();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Get a handle on all views
+        getHandleOnViews();
+    }
+
+    /**
+     * Helper method to get a handle on all views within the activity
+     */
+    private void getHandleOnViews() {
+        rockButtonImage_ = findViewById(R.id.imgRockButton);
+        paperButtonImage_ = findViewById(R.id.imgPaperButton);
+        scissorsButtonImage_ = findViewById(R.id.imgScissorsButton);
+        playerMoveImage_ = findViewById(R.id.imgPlayerMove);
+        computerMoveImage_ = findViewById(R.id.imgComputerMove);
+        playerMoveText_ = findViewById(R.id.txtPlayerMove);
+        computerMoveText_ = findViewById(R.id.txtComputerMove);
+        gameResultText_ = findViewById(R.id.txtGameResult);
+    }
+
+    /**
+     * Handle the player's move, finding out which image they clicked on
+     * @param view The view that was clicked
+     */
+    public void handlePlayerMove(View view) {
+        switch (view.getId()) {
+            case R.id.imgRockButton:
+                game.playerMakesMove(0);
+                break;
+            case R.id.imgPaperButton:
+                game.playerMakesMove(1);
+                break;
+            case R.id.imgScissorsButton:
+                game.playerMakesMove(2);
+                break;
+            default:
+                //Do nothing
+                break;
+        }
+
+        drawView();
+    }
+
+    /**
+     * Draw the game's view
+     */
+    public void drawView() {
+        drawPlayerMove();
+        drawComputerMove();
+        updateResultText();
+        animateResultImages();
+    }
+
+    /**
+     * Updates the game result text based on the outcome
+     */
+    private void updateResultText() {
+        switch (game.winLoseOrDraw()) {
+            case R.string.win:
+                gameResultText_.setText(R.string.win);
+                break;
+            case R.string.lose:
+                gameResultText_.setText(R.string.lose);
+                break;
+            case R.string.draw:
+                gameResultText_.setText(R.string.draw);
+                break;
+            default:
+                //Do nothing
+                break;
+        }
+    }
+
+    /**
+     * Draws the computer's move on screen
+     */
+    private void drawComputerMove() {
+        switch (game.getGameMove()) {
+            case 0:
+                computerMoveImage_.setImageResource(R.drawable.rock);
+                break;
+            case 1:
+                computerMoveImage_.setImageResource(R.drawable.paper);
+                break;
+            case 2:
+                computerMoveImage_.setImageResource(R.drawable.scissors);
+                break;
+            default:
+                //Do nothing
+                break;
+        }
+    }
+
+    /**
+     * Draws the player's move on screen
+     */
+    private void drawPlayerMove() {
+        switch (game.getPlayerMove()) {
+            case 0:
+                playerMoveImage_.setImageResource(R.drawable.rock);
+                break;
+            case 1:
+                playerMoveImage_.setImageResource(R.drawable.paper);
+                break;
+            case 2:
+                playerMoveImage_.setImageResource(R.drawable.scissors);
+                break;
+            default:
+                //Do nothing
+                break;
+        }
+    }
+
+    /**
+     * Animate the result images
+     */
+    private void animateResultImages() {
+        ObjectAnimator animatorPlayer = ObjectAnimator.ofFloat(playerMoveImage_,
+                "rotationX", 0f, 360f).setDuration(500);
+
+        ObjectAnimator animatorComputer = ObjectAnimator.ofFloat(computerMoveImage_,
+                "rotationX", 0f, 360f).setDuration(500);
+
+        AnimatorSet set = new AnimatorSet();
+        set.playTogether(animatorComputer, animatorPlayer);
+        set.setInterpolator(new AccelerateDecelerateInterpolator());
+        set.start();
     }
 }
