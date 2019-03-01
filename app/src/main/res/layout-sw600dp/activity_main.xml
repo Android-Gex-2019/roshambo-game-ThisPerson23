@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-    File:  land\activity_main.xml
+    File:  sw600dp\activity_main.xml
 
     Author: Justin Lange
     This assignment represents my own work and is in accordance with the College Academic Policy
@@ -28,7 +28,7 @@
         android:onClick="handlePlayerMove"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/rock_button" />
+        app:srcCompat="@drawable/rock" />
 
     <ImageView
         android:id="@+id/imgPaperButton"
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imgScissorsButton"
         app:layout_constraintStart_toEndOf="@+id/imgRockButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/paper_button" />
+        app:srcCompat="@drawable/paper" />
 
     <ImageView
         android:id="@+id/imgScissorsButton"
@@ -54,29 +54,33 @@
         android:onClick="handlePlayerMove"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/scissor_button" />
+        app:srcCompat="@drawable/scissors" />
 
     <ImageView
         android:id="@+id/imgPlayerMove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="125dp"
         android:contentDescription="@string/player_move_image_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/none_button" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/none" />
 
     <ImageView
         android:id="@+id/imgComputerMove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="125dp"
         android:contentDescription="@string/computer_move_image_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/none_button" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/none" />
 
     <TextView
         android:id="@+id/txtPlayerMove"
@@ -86,7 +90,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:text="@string/player_move_initial_text"
-        android:textSize="22sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="@+id/imgPlayerMove"
         app:layout_constraintStart_toStartOf="@+id/imgPlayerMove"
         app:layout_constraintTop_toBottomOf="@+id/imgPlayerMove" />
@@ -99,7 +103,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:text="@string/computer_move_initial_text"
-        android:textSize="22sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="@+id/imgComputerMove"
         app:layout_constraintStart_toStartOf="@+id/imgComputerMove"
         app:layout_constraintTop_toBottomOf="@+id/imgComputerMove" />
@@ -107,16 +111,16 @@
     <TextView
         android:id="@+id/txtGameResult"
         android:layout_width="wrap_content"
-        android:layout_height="38dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="24dp"
         android:text="@string/result_initial_text"
-        android:textSize="30sp"
+        android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgPaperButton" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPlayerMove" />
 
 </android.support.constraint.ConstraintLayout>

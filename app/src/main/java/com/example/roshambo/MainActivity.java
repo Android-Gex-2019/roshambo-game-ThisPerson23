@@ -13,9 +13,13 @@ package com.example.roshambo;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Configuration;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AnticipateOvershootInterpolator;
@@ -115,19 +119,37 @@ public class MainActivity extends AppCompatActivity {
      * Draws the computer's move on screen
      */
     private void drawComputerMove() {
-        switch (game.getGameMove()) {
-            case 0:
-                computerMoveImage_.setImageResource(R.drawable.rock_button);
-                break;
-            case 1:
-                computerMoveImage_.setImageResource(R.drawable.paper_button);
-                break;
-            case 2:
-                computerMoveImage_.setImageResource(R.drawable.scissor_button);
-                break;
-            default:
-                //Do nothing
-                break;
+        if (isTablet(this))
+        {
+            switch (game.getGameMove()) {
+                case 0:
+                    computerMoveImage_.setImageResource(R.drawable.rock);
+                    break;
+                case 1:
+                    computerMoveImage_.setImageResource(R.drawable.paper);
+                    break;
+                case 2:
+                    computerMoveImage_.setImageResource(R.drawable.scissors);
+                    break;
+                default:
+                    //Do nothing
+                    break;
+            }
+        } else {
+            switch (game.getGameMove()) {
+                case 0:
+                    computerMoveImage_.setImageResource(R.drawable.rock_button);
+                    break;
+                case 1:
+                    computerMoveImage_.setImageResource(R.drawable.paper_button);
+                    break;
+                case 2:
+                    computerMoveImage_.setImageResource(R.drawable.scissor_button);
+                    break;
+                default:
+                    //Do nothing
+                    break;
+            }
         }
     }
 
@@ -135,19 +157,36 @@ public class MainActivity extends AppCompatActivity {
      * Draws the player's move on screen
      */
     private void drawPlayerMove() {
-        switch (game.getPlayerMove()) {
-            case 0:
-                playerMoveImage_.setImageResource(R.drawable.rock_button);
-                break;
-            case 1:
-                playerMoveImage_.setImageResource(R.drawable.paper_button);
-                break;
-            case 2:
-                playerMoveImage_.setImageResource(R.drawable.scissor_button);
-                break;
-            default:
-                //Do nothing
-                break;
+        if (isTablet(this)) {
+            switch (game.getPlayerMove()) {
+                case 0:
+                    playerMoveImage_.setImageResource(R.drawable.rock);
+                    break;
+                case 1:
+                    playerMoveImage_.setImageResource(R.drawable.paper);
+                    break;
+                case 2:
+                    playerMoveImage_.setImageResource(R.drawable.scissors);
+                    break;
+                default:
+                    //Do nothing
+                    break;
+            }
+        } else {
+            switch (game.getPlayerMove()) {
+                case 0:
+                    playerMoveImage_.setImageResource(R.drawable.rock_button);
+                    break;
+                case 1:
+                    playerMoveImage_.setImageResource(R.drawable.paper_button);
+                    break;
+                case 2:
+                    playerMoveImage_.setImageResource(R.drawable.scissor_button);
+                    break;
+                default:
+                    //Do nothing
+                    break;
+            }
         }
     }
 
@@ -165,5 +204,16 @@ public class MainActivity extends AppCompatActivity {
         set.playTogether(animatorComputer, animatorPlayer);
         set.setInterpolator(new AccelerateDecelerateInterpolator());
         set.start();
+    }
+
+    /**
+     * Checks if the device being used is of tablet size or not
+     * @param context The state of the current class
+     * @return True if device is a tablet, false if not
+     */
+    private static boolean isTablet(Context context) {
+        return (context.getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK)
+                >= Configuration.SCREENLAYOUT_SIZE_LARGE;
     }
 }
