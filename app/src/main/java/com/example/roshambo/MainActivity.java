@@ -13,28 +13,19 @@ package com.example.roshambo;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Display;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AnticipateOvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView rockButtonImage_;
-    private ImageView paperButtonImage_;
-    private ImageView scissorsButtonImage_;
     private ImageView playerMoveImage_;
     private ImageView computerMoveImage_;
-    private TextView playerMoveText_;
-    private TextView computerMoveText_;
     private TextView gameResultText_;
 
     private Roshambo game = new Roshambo();
@@ -52,13 +43,8 @@ public class MainActivity extends AppCompatActivity {
      * Helper method to get a handle on all views within the activity
      */
     private void getHandleOnViews() {
-        rockButtonImage_ = findViewById(R.id.imgRockButton);
-        paperButtonImage_ = findViewById(R.id.imgPaperButton);
-        scissorsButtonImage_ = findViewById(R.id.imgScissorsButton);
         playerMoveImage_ = findViewById(R.id.imgPlayerMove);
         computerMoveImage_ = findViewById(R.id.imgComputerMove);
-        playerMoveText_ = findViewById(R.id.txtPlayerMove);
-        computerMoveText_ = findViewById(R.id.txtComputerMove);
         gameResultText_ = findViewById(R.id.txtGameResult);
     }
 
