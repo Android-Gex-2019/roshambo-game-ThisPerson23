@@ -37,6 +37,19 @@ public class MainActivity extends AppCompatActivity {
 
         //Get a handle on all views
         getHandleOnViews();
+
+        //Restore the game's state on re-creation
+        if (savedInstanceState != null) {
+            game = (Roshambo)savedInstanceState.getSerializable("game");
+            drawView();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putSerializable("game", game);
     }
 
     /**

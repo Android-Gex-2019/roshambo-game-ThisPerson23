@@ -11,9 +11,10 @@
 
 package com.example.roshambo;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Roshambo {
+public class Roshambo implements Serializable {
 
     public static final int ROCK = 0;
     public static final int PAPER = 1;
