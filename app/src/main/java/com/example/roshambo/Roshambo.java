@@ -1,10 +1,10 @@
 /*
     File:  Roshambo.java
 
-    Author: Justin Lange
-    This assignment represents my own work and is in accordance with the College Academic Policy
+    Author: David Burchill
+    Edited By: Justin Lange
 
-    Copyright(c) 2019 All Right Reserved by Justin Lange
+    Copyright(c) 2019 All Right Reserved by David Burchill
 
     Date: 28-02-19
 */
