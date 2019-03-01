@@ -117,13 +117,13 @@ public class MainActivity extends AppCompatActivity {
     private void drawComputerMove() {
         switch (game.getGameMove()) {
             case 0:
-                computerMoveImage_.setImageResource(R.drawable.rock);
+                computerMoveImage_.setImageResource(R.drawable.rock_button);
                 break;
             case 1:
-                computerMoveImage_.setImageResource(R.drawable.paper);
+                computerMoveImage_.setImageResource(R.drawable.paper_button);
                 break;
             case 2:
-                computerMoveImage_.setImageResource(R.drawable.scissors);
+                computerMoveImage_.setImageResource(R.drawable.scissor_button);
                 break;
             default:
                 //Do nothing
@@ -137,13 +137,13 @@ public class MainActivity extends AppCompatActivity {
     private void drawPlayerMove() {
         switch (game.getPlayerMove()) {
             case 0:
-                playerMoveImage_.setImageResource(R.drawable.rock);
+                playerMoveImage_.setImageResource(R.drawable.rock_button);
                 break;
             case 1:
-                playerMoveImage_.setImageResource(R.drawable.paper);
+                playerMoveImage_.setImageResource(R.drawable.paper_button);
                 break;
             case 2:
-                playerMoveImage_.setImageResource(R.drawable.scissors);
+                playerMoveImage_.setImageResource(R.drawable.scissor_button);
                 break;
             default:
                 //Do nothing
