@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Draw the game's view
      */
-    public void drawView() {
+    private void drawView() {
         drawPlayerMove();
         drawComputerMove();
         updateResultText();
@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
      * @param context The state of the current class
      * @return True if device is a tablet, false if not
      */
-    private static boolean isTablet(Context context) {
+    private boolean isTablet(Context context) {
         return (context.getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
                 >= Configuration.SCREENLAYOUT_SIZE_LARGE;
